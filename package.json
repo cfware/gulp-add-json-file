@@ -1,0 +1,53 @@
+{
+	"name": "gulp-add-json-file",
+	"version": "0.1.0",
+	"description": "Add a JSON formatted file to a gulp stream.",
+	"main": "index.js",
+	"scripts": {
+		"test": "xo && nyc ava -v"
+	},
+	"engines": {
+		"node": ">=6"
+	},
+	"author": "Corey Farrell",
+	"license": "MIT",
+	"files": [
+		"*.js"
+	],
+	"keywords": [
+		"gulp",
+		"gulpplugin",
+		"json",
+		"vinyl"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cfware/gulp-add-json-file.git"
+	},
+	"bugs": {
+		"url": "https://github.com/cfware/gulp-add-json-file/issues"
+	},
+	"homepage": "https://github.com/cfware/gulp-add-json-file#readme",
+	"dependencies": {
+		"vinyl": "^2.2.0"
+	},
+	"devDependencies": {
+		"ava": "^1.2.0",
+		"concat-stream": "^2.0.0",
+		"gulp": "^4.0.0",
+		"nyc": "^13.2.0",
+		"pump": "^3.0.0",
+		"xo": "^0.24.0"
+	},
+	"nyc": {
+		"check-coverage": true,
+		"per-file": true,
+		"lines": 100,
+		"statements": 100,
+		"functions": 100,
+		"branches": 100,
+		"include": [
+			"*.js"
+		]
+	}
+}
