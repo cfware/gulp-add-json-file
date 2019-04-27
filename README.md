@@ -10,7 +10,7 @@ Add a JSON formatted file to a gulp stream.
 
 ### Install gulp-add-json-file
 
-This module requires node.js 6 or above.
+This module requires node.js 8 or above.
 
 ```sh
 npm i -D gulp gulp-add-json-file pump
