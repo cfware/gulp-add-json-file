@@ -1,6 +1,6 @@
 {
 	"name": "gulp-add-json-file",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Add a JSON formatted file to a gulp stream.",
 	"main": "index.js",
 	"scripts": {
