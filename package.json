@@ -7,12 +7,12 @@
 		"test": "xo && nyc ava -v"
 	},
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
 	"files": [
-		"*.js"
+		"index.js"
 	],
 	"keywords": [
 		"gulp",
@@ -32,22 +32,12 @@
 		"vinyl": "^2.2.0"
 	},
 	"devDependencies": {
+		"@cfware/nyc": "^0.4.2",
 		"ava": "^1.2.0",
 		"concat-stream": "^2.0.0",
 		"gulp": "^4.0.0",
-		"nyc": "^14.0.0",
+		"nyc": "^14.1.0",
 		"pump": "^3.0.0",
 		"xo": "^0.24.0"
-	},
-	"nyc": {
-		"check-coverage": true,
-		"per-file": true,
-		"lines": 100,
-		"statements": 100,
-		"functions": 100,
-		"branches": 100,
-		"include": [
-			"*.js"
-		]
 	}
 }
