@@ -4,6 +4,7 @@
 	"description": "Add a JSON formatted file to a gulp stream.",
 	"main": "index.js",
 	"scripts": {
+		"release": "standard-version --sign",
 		"test": "xo && nyc ava -v"
 	},
 	"engines": {
@@ -38,6 +39,7 @@
 		"gulp": "^4.0.0",
 		"nyc": "^14.1.0",
 		"pump": "^3.0.0",
+		"standard-version": "^5.0.2",
 		"xo": "^0.24.0"
 	}
 }
