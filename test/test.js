@@ -8,7 +8,7 @@ import pump from 'pump';
 
 import gulpAddJSON from '..';
 
-const fixtures = path.join(__dirname, 'fixtures');
+const fixtures = path.join(__dirname, '..', 'fixtures');
 const fixtureContents = {
 	'file.js': fs.readFileSync(path.join(fixtures, 'file.js'), 'utf8')
 };
@@ -35,7 +35,7 @@ function basicTest(t, testFile, testObject, space) {
 	});
 
 	pump(
-		gulp.src(path.join(__dirname, 'fixtures', '**'), {base: fixtures, nodir: true}),
+		gulp.src(path.join(fixtures, '**'), {base: fixtures, nodir: true}),
 		gulpAddJSON(testFile, testObject, space),
 		concatStream
 	);
