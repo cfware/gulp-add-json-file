@@ -45,7 +45,10 @@ function basicTest(t, testFile, testObject, space) {
 	});
 }
 
-test('export', t => t.is(typeof gulpAddJSON, 'function'));
+test('export', t => {
+	t.is(typeof gulpAddJSON, 'function');
+});
+
 test('default', basicTest, 'test.json', {name: 'value'});
 test('space', basicTest, 'test.json', {name: 'value'}, 2);
 test('U+2028', basicTest, 'test.json', {name: 'value\u2028'});
