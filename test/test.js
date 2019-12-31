@@ -25,10 +25,11 @@ function basicTest(t, testFile, testObject, space) {
 	const concatStream = concat(data => {
 		const expectKeys = new Set(Object.keys(expected));
 
-		data.forEach(f => {
+		for (const f of data) {
 			t.true(expectKeys.delete(f.relative));
 			t.is(f.contents.toString(), expected[f.relative]);
-		});
+		}
+
 		t.is(expectKeys.size, 0);
 
 		pr.resolve();
