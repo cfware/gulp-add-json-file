@@ -1,23 +1,15 @@
-'use strict';
+import {PassThrough} from 'stream';
+import Vinyl from 'vinyl';
 
-const {PassThrough} = require('stream');
-const Vinyl = require('vinyl');
+const stringifyJSON = (...args) => JSON.stringify(...args)
+	.replace(/\u2028/gu, '\\u2028')
+	.replace(/\u2029/gu, '\\u2029');
 
-function fixupJSON(s, space) {
-	return JSON.stringify(s, null, space)
-		.replace(/\u2028/g, '\\u2028')
-		.replace(/\u2029/g, '\\u2029');
-}
-
-function gulpAddJSON(path, object, space) {
+export default function gulpAddJSON(path, object, space) {
 	const stream = new PassThrough({objectMode: true});
+	const contents = Buffer.from(stringifyJSON(object, null, space));
 
-	stream.write(new Vinyl({
-		path,
-		contents: Buffer.from(fixupJSON(object, space))
-	}));
+	stream.write(new Vinyl({path, contents}));
 
 	return stream;
 }
-
-module.exports = gulpAddJSON;

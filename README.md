@@ -10,24 +10,26 @@ Add a JSON formatted file to a gulp stream.
 
 ### Install gulp-add-json-file
 
-This module requires node.js 8 or above.
+This module requires node.js 13.8.0 or above.
 
 ```sh
-npm i -D gulp gulp-add-json-file pump
+npm i -D gulp gulp-add-json-file
 ```
 
 ## Usage
 
 ```js
-'use strict';
+import {promisify} from 'util';
+import stream from 'stream';
 
-const gulp = require('gulp');
-const gulpAddJSON = require('gulp-add-json-file');
-const pump = require('pump');
+import gulp from 'gulp';
+import gulpAddJSON from 'gulp-add-json-file';
+
+const pipeline = promisify(stream.pipeline);
 
 gulp.task('default', () => {
 	/* Copy 'src/**' to 'dest', add 'filename.json' from JS object. */
-	return pump(
+	return pipeline(
 		gulp.src('src/**'),
 		gulpAddJSON('filename.json', {field: 'value'}),
 		gulp.dest('dest')
@@ -51,14 +53,6 @@ This module should not be used to add a duplicate filename to the gulp stream.  
 the above example if `src/filename.json` exists it should be filtered out from
 `gulp.src`.
 
-## Running tests
-
-Tests are provided by xo and ava.
-
-```sh
-npm install
-npm test
-```
 
 [npm-image]: https://img.shields.io/npm/v/gulp-add-json-file.svg
 [npm-url]: https://npmjs.org/package/gulp-add-json-file

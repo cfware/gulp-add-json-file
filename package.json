@@ -2,12 +2,15 @@
 	"name": "gulp-add-json-file",
 	"version": "0.2.1",
 	"description": "Add a JSON formatted file to a gulp stream.",
+	"type": "module",
+	"exports": "./index.js",
 	"scripts": {
 		"release": "standard-version --sign",
-		"test": "xo && nyc ava -v"
+		"pretest": "cfware-lint .",
+		"test": "c8 node test.js"
 	},
 	"engines": {
-		"node": ">=8"
+		"node": ">=13.8.0"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
@@ -29,13 +32,11 @@
 		"vinyl": "^2.2.0"
 	},
 	"devDependencies": {
-		"@cfware/nyc": "^0.6.0",
-		"ava": "^2.0.0",
+		"@cfware/lint": "^1.1.2",
+		"c8": "^7.0.1",
 		"concat-stream": "^2.0.0",
-		"gulp": "^4.0.2",
-		"nyc": "^15.0.0",
-		"pump": "^3.0.0",
+		"libtap": "^0.2.0",
 		"standard-version": "^7.0.0",
-		"xo": "^0.25.3"
+		"vinyl-fs": "^3.0.3"
 	}
 }
